@@ -11,7 +11,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 def post_list(request):
 	posts_list = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
 
-	paginator = Paginator(posts_list, 3) # Show 25 contacts per page
+	paginator = Paginator(posts_list, 25) # Show 25 contacts per page
 
 	page = request.GET.get('page')
 	try:
@@ -23,7 +23,8 @@ def post_list(request):
 		# If page is out of range (e.g. 9999), deliver last page of results.
 		posts = paginator.page(paginator.num_pages)
 
-	return render(request, 'pdblogapp/post_list.html', {'posts': posts})
+	#return render(request, 'pdblogapp/post_list.html', {'posts': posts})
+	return render(request, 'pdblogapp/index.html', {'posts': posts})
 
 
 
@@ -31,7 +32,9 @@ def post_list(request):
 #create a 2nd view called post_detail
 def post_detail(request, pk):
 	post = get_object_or_404(Post, pk=pk)
-	return render(request, 'pdblogapp/post_detail.html', {'post': post})
+	#return render(request, 'pdblogapp/post_detail.html', {'post': post})
+	return render(request, 'pdblogapp/index.html', {'post': post})
+
 
 def post_new(request):
 	if request.method == "POST":
