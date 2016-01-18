@@ -401,12 +401,9 @@
 										<div class="modal-dialog">
 											<div class="modal-content">
 												<div class="modal-body">
-													
-													
-													
-													<img src="{{ post.image.url }}" class='img-responsive' />
-													<h3>{{ post.pk }}</h3>
-
+												{% if post.image %}	
+									    		 	<img src="{{ post.image.url }}" class='img-responsive' />
+									    		{% endif %}
 													<p>{{ post.text|linebreaks }}</p>
 													<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 													
