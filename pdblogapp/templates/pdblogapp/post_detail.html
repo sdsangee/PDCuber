@@ -1,7 +1,13 @@
-{% extends 'pdblogapp/base.html' %}
+{% extends 'pdblogapp/index.html' %}
 {% load staticfiles %}
 {% load static %} 
-{% block content %}
+{% block carousel_page %}
+{% endblock %}
+{% block about_us %}
+{% endblock %}
+{% block videos %}
+{% endblock %}
+{% block detail_page %}
 	<div class='col-sm-6 col-sm-offset-3'>
 		<div class="post">
 			{% if post.published_date %}
@@ -21,4 +27,6 @@
 		
 		</div>	
 	<div>	
+{% endblock %}
+{% block contact%}
 {% endblock %}

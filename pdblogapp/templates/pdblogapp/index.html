@@ -18,7 +18,7 @@
         <link rel="stylesheet" href="{% static 'css/reset.css' %}">
         <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
         <link rel="stylesheet" href="{% static 'css/pdblogapp.css' %}">
-	!--[if lt IE 9]> <script src="{% static 'js/html5shiv.js' %}"></script> 
+	<!--[if lt IE 9]> <script src="{% static 'js/html5shiv.js' %}"></script> 
 	<script src="{% static 'js/respond.min.js' %}"></script> <![endif]--> 
 	<link rel="shortcut icon" href="{% static 'images/ico/favicon.png' %}"> 
 	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'images/ico/apple-touch-icon-144-precomposed.png' %}"> 
@@ -50,6 +50,7 @@
     </div>
 	-->
 	<header id="navigation"> 
+		{% block nav_page %}
 		<div class="navbar navbar-inverse navbar-fixed-top" role="banner"> 
 			<div class="container"> 
 				<div class="navbar-header"> 
@@ -72,8 +73,9 @@
 				</div> 
 			</div> 
 		</div><!--/navbar--> 
-	</header> <!--/#navigation--> 
-
+		{% endblock %}
+	</header>
+	{% block carousel_page %}
 	<section id="home">
 		<div class="home-pattern"></div>
 		<div id="main-carousel" class="carousel slide" data-ride="carousel"> 
@@ -115,7 +117,8 @@
 	</div> 
 
 </section><!--/#home-->
-
+{% endblock %}
+{% block about_us %}
 <section id="about-us">
 	<div class="container">
 		<div class="text-center">
@@ -195,8 +198,8 @@
 			</div>
 		</div>
 	</section><!--/#about-us-->
-
-	
+{% endblock %}
+	{% block videos %}
 		<section id="videos">
 			<div class="container">
 				<div class="row text-center">
@@ -366,8 +369,8 @@
 							</div>
 						</div> 
 
-					</section> <!--/#portfolio-->
-
+					</section> <!--/#videos-->
+		{% endblock%}
 					
 
 					<section id="blog"> 
@@ -423,11 +426,13 @@
 									</div>
 								</div>			
 							</div>Model Dialog-->			
+							{% block detail_page %}
+							{% endblock %}
 							</div> 
 						</div> 
 						
 					</section> <!--/#blog-->
-
+{% block contact%}
 						<section id="contact">
 							<div class="container">
 								<div class="row text-center clearfix">
@@ -474,7 +479,7 @@
 									</div>
 								</div> 
 							</section> <!--/#contact--> 
-
+{% endblock %}
 	<footer id="footer"> 
 		<div class="container"> 
 			<div class="text-center"> 
