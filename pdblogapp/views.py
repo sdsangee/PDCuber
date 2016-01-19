@@ -1,3 +1,4 @@
+
 from django.shortcuts import render, get_object_or_404,redirect
 from django.utils import timezone
 from .models import Post
@@ -32,8 +33,8 @@ def post_list(request):
 #create a 2nd view called post_detail
 def post_detail(request, pk):
 	post = get_object_or_404(Post, pk=pk)
-	#return render(request, 'pdblogapp/post_detail.html', {'post': post})
-	return render(request, 'pdblogapp/index.html', {'post': post})
+	return render(request, 'pdblogapp/post_detail.html', {'post': post})
+	#return render(request, 'pdblogapp/index.html', {'post': post})
 
 
 def post_new(request):
@@ -65,4 +66,4 @@ def post_edit(request, pk):
 	
 			
 
-# Create your views here.
+#
